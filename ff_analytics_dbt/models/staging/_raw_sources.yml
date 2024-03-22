@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: ff_analytics
+    database: ff_analytics 
+    schema: raw 
+    tables:
+      - name: box_scores
+      - name: draft
+      - name: matchups
+      - name: settings
+      - name: players
+      - name: teams
