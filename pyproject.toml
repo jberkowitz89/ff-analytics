@@ -10,6 +10,8 @@ packages = [{include = "ff_analytics"}]
 python = "^3.9"
 espn-api = "^0.34.0"
 pandas = "^2.1.4"
+psycopg2 = "^2.9.9"
+sqlalchemy = "^2.0.28"
 
 
 [tool.poetry.group.dev.dependencies]
