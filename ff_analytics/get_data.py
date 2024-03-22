@@ -48,6 +48,7 @@ def get_weekly_matchups(league: League) -> list:
             matchup_info['home_team_name'] = matchup_info['home_team'].team_name
             matchup_info['away_team_id'] = matchup_info['away_team'].team_id
             matchup_info['away_team_name'] = matchup_info['away_team'].team_name
+            matchup_info['week'] = i
             all_weeks.append(matchup_info)
     return all_weeks
 
@@ -93,6 +94,7 @@ def get_box_scores(league: League) -> list:
                 box_score_info['home_team_name'] = box_score_info['home_team'].team_name
                 box_score_info['away_team_id'] = box_score_info['away_team'].team_id
                 box_score_info['away_team_name'] = box_score_info['away_team'].team_name
+                box_score_info['week'] = i
                 all_box_scores.append(box_score_info)
         return all_box_scores
 

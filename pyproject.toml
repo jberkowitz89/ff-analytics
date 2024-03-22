@@ -12,6 +12,8 @@ espn-api = "^0.34.0"
 pandas = "^2.1.4"
 psycopg2 = "^2.9.9"
 sqlalchemy = "^2.0.28"
+dbt-postgres = "^1.7.10"
+dbt-core = "^1.7.10"
 
 
 [tool.poetry.group.dev.dependencies]
