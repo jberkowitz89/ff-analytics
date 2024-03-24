@@ -16,7 +16,8 @@ files = {'box_scores': 'data/box_scores.csv',
          'matchups': 'data/matchups.csv',
          'players': 'data/players.csv',
          'draft': 'data/draft.csv',
-         'teams': 'data/teams.csv'}
+         'teams': 'data/teams.csv',
+         'box_players': 'data/box_players.csv'}
 
 if __name__ == '__main__':
     for table_name, file_name in files.items():

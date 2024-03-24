@@ -1,5 +1,6 @@
 import csv
-from get_data import get_league, get_settings, get_draft, get_weekly_matchups, get_teams, get_players, get_box_scores, LEAGUE_ID, ESPN_S2, SWID
+from get_data import get_league
+from constants import LEAGUE_ID, ESPN_S2, SWID
 
 def settings_csv(settings):
     '''
@@ -75,6 +76,21 @@ def box_scores_csv(all_box_scores):
     except:
         pass
 
+def box_players_csv(all_box_players):
+    '''
+    docstring placeholder
+    '''
+    keys = all_box_players[0][0].keys()
+    try:
+        with open('data/box_players.csv', 'w', newline='') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=keys)
+            writer.writeheader()
+            for box_players in all_box_players:
+                for box_player in box_players:
+                    writer.writerow(box_player)
+    except:
+        pass
+
 if __name__ == '__main__':
     my_league = get_league(LEAGUE_ID, 2021, ESPN_S2, SWID)
     settings_csv(my_league)
@@ -83,3 +99,4 @@ if __name__ == '__main__':
     teams_csv(my_league)
     players_csv(my_league)
     box_scores_csv(my_league)
+    box_players_csv(my_league)
