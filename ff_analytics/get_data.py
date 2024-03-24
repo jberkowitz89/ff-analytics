@@ -40,6 +40,7 @@ def get_weekly_matchups(league: League) -> list:
     '''
     all_weeks = list()
     for i in range(len(league.settings.matchup_periods)):
+        i += 1
         matchups_lst = league.scoreboard(week=i)
         for matchup in matchups_lst:
             matchup_info = vars(matchup)
@@ -86,6 +87,7 @@ def get_box_scores(league: League) -> list:
         print('Box scores not available for '+ str(league.year))
     else:
         for i in range(len(league.settings.matchup_periods)):
+            i += 1
             box_scores_lst = league.box_scores(week=i)
             for box_score in box_scores_lst:
                 box_score_info = vars(box_score)
@@ -97,9 +99,38 @@ def get_box_scores(league: League) -> list:
                 box_score_info['week'] = i
                 all_box_scores.append(box_score_info)
         return all_box_scores
-
+    
+def get_box_players(league: League) -> list:
+    '''
+    docstring placeholder
+    '''
+    all_box_players = list()
+    player_info = dict()
+    if league.year < 2019:
+        print('Box players not available for '+ str(league.year))
+    else:
+        for i in range(len(league.settings.matchup_periods)):
+            i += 1
+            box_scores_lst = league.box_scores(week=i)
+            for box_score in box_scores_lst:
+                for player in box_score.home_lineup:
+                    player_info = vars(player)
+                    player_info['year'] = league.year
+                    player_info['team_id'] = box_score.home_team.team_id
+                    player_info['team_name'] = box_score.home_team.team_name
+                    player_info['week'] = i
+                    all_box_players.append(player_info)
+                for player in box_score.away_lineup:
+                    player_info = vars(player)
+                    player_info['year'] = league.year
+                    player_info['team_id'] = box_score.away_team.team_id
+                    player_info['team_name'] = box_score.away_team.team_name
+                    player_info['week'] = i
+                    all_box_players.append(player_info)
+        return all_box_players
+            
 if __name__ == '__main__':
     my_league = get_league(LEAGUE_ID, 2021, ESPN_S2, SWID)
-    box_scores = get_box_scores(my_league)
-    print(type(box_scores))
-    print(box_scores[0])
+    box_players = get_box_players(my_league)
+    print(type(box_players))
+    print(box_players[0])
