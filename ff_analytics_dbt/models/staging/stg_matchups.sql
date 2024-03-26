@@ -15,6 +15,7 @@ renamed as (
         home_score,
         away_score,
         is_playoff,
+        week,
         year,
         case
             when home_score > away_score then home_team_id

@@ -11,3 +11,4 @@ sources:
       - name: settings
       - name: players
       - name: teams
+      - name: box_players
