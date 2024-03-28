@@ -7,8 +7,7 @@ with source as (
 renamed as (
 
     select 
-        *,
-        to_json(stats) as stats_dict
+        *
     from
         source
 
