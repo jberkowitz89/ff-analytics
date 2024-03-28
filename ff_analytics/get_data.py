@@ -106,6 +106,11 @@ def get_box_players(league: League) -> list:
     '''
     all_box_players = list()
     player_info = dict()
+    stats_keys = ['rushingAttempts', 'rushingYards', 'rushingTouchdowns', 'rushingYardsPerAttempt',
+                  'receivingReceptions', 'receivingYards', 'receivingTargets', 'receivingYardsAfterCatch',
+                  'receivingTouchdowns', 'receivingYardsPerReception', 'passingAttempts', 'passingCompletions',
+                  'passingYards', 'passingTouchdowns', 'passingInterceptions', 'passingYardsPerAttempt',
+                  'turnovers', 'fumblesLost']
     if league.year < 2019:
         print('Box players not available for '+ str(league.year))
     else:
@@ -119,6 +124,11 @@ def get_box_players(league: League) -> list:
                     player_info['team_id'] = box_score.home_team.team_id
                     player_info['team_name'] = box_score.home_team.team_name
                     player_info['week'] = i
+                    for field in stats_keys:
+                        try:
+                            player_info[field] = player_info['points_breakdown'][field]
+                        except:
+                            player_info[field] = 0
                     all_box_players.append(player_info)
                 for player in box_score.away_lineup:
                     player_info = vars(player)
@@ -126,6 +136,11 @@ def get_box_players(league: League) -> list:
                     player_info['team_id'] = box_score.away_team.team_id
                     player_info['team_name'] = box_score.away_team.team_name
                     player_info['week'] = i
+                    for field in stats_keys:
+                        try:
+                            player_info[field] = player_info['points_breakdown'][field]
+                        except:
+                            player_info[field] = 0
                     all_box_players.append(player_info)
         return all_box_players
             
