@@ -7,7 +7,7 @@ with source as (
 renamed as (
 
     select
-        {{ dbt_utils.generate_surrogate_key(['home_team_id', 'away_team_id', 'home_score', 'away_score']) }} as box_score_id,
+        {{ dbt_utils.generate_surrogate_key(['home_team_id', 'away_team_id', 'week', 'year']) }} as box_score_id,
         home_team_id,
         away_team_id,
         lower(home_team) as home_team,
@@ -15,8 +15,8 @@ renamed as (
         lower(matchup_type) as matchup_type,
         home_score,
         away_score,
-        home_projected,
-        away_projected,
+        home_projected as home_projected_score,
+        away_projected as away_projected_score,
         home_score - home_projected as home_projected_delta,
         away_score - away_projected as away_projected_delta,
         week,
