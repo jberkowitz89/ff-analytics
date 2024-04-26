@@ -12,7 +12,7 @@ renamed as (
         away_team_id,
         home_team_name,
         away_team_name,
-        matchup_type,
+        lower(matchup_type) as matchup_type,
         home_score,
         away_score,
         is_playoff,

@@ -1,6 +1,6 @@
 with matchups as (
 
-    select * from {{ ref('stg_matchups') }}
+    select * from {{ ref('stg_matchups') }} where year <= 2018
 
 ),
 
@@ -33,6 +33,7 @@ matchups_joined as (
         matchups.losing_team_id,
         winning_team_owners.owner_name as winning_team_owner,
         losing_team_owners.owner_name as losing_team_owner,
+        matchups.matchup_type,
 
         --amounts
         matchups.home_score,
@@ -76,6 +77,7 @@ box_scores_joined as (
         box_scores.losing_team_id,
         winning_team_owners.owner_name as winning_team_owner,
         losing_team_owners.owner_name as losing_team_owner,
+        box_scores.matchup_type,
 
         --amounts
         box_scores.home_score,
