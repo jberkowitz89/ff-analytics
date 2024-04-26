@@ -7,6 +7,7 @@ with source as (
 renamed as (
 
     select
+        {{ dbt_utils.generate_surrogate_key(['home_team_id', 'away_team_id', 'week', 'year']) }} as matchup_id,
         home_team_id,
         away_team_id,
         home_team_name,
