@@ -1,12 +1,13 @@
 import pandas as pd
 from sqlalchemy import create_engine
+from constants import PG_PROD_HOST, PG_PROD_DATABASE, PG_PROD_USER, PG_PROD_PASSWORD
 
 # Define the database connection parameters
 db_params = {
-    'host': '127.0.0.1',
-    'database': 'ff_analytics',
-    'user': 'jberkowitz',
-    'password': 'password'
+    'host': PG_PROD_HOST,
+    'database': PG_PROD_DATABASE,
+    'user': PG_PROD_USER,
+    'password': PG_PROD_PASSWORD
 }
 
 engine = create_engine(f'postgresql://{db_params["user"]}:{db_params["password"]}@{db_params["host"]}/{db_params["database"]}')
