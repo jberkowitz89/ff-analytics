@@ -4,3 +4,7 @@
 /ff_analytics/constants.py
 /ff_analytics/.DS_Store
 /logs
+.vercel
+.env.development.local
+ff_analytics_dump
+.vscode/
