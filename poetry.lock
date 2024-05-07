@@ -451,12 +451,12 @@ files = [
 
 [[package]]
 name = "espn-api"
-version = "0.34.0"
+version = "0.36.0"
 description = "ESPN API"
 optional = false
 python-versions = "*"
 files = [
-    {file = "espn_api-0.34.0-py3-none-any.whl", hash = "sha256:a25b3fe117dd1772903e6777eaf6772d808e1672db4f9a3f6713ee6c1922a267"},
+    {file = "espn_api-0.36.0-py3-none-any.whl", hash = "sha256:b95ea092f056fc6d0d0b889789639df9ded9df61a1cc01d52312c8d4c01c1747"},
 ]
 
 [package.dependencies]
@@ -2202,4 +2202,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "7f1ddffd23a1f0c91efd0a6dc5960d9371a016f0d56d1f343e20a915ad6da0d5"
+content-hash = "43cc85980baee3102f70c128521c5b1ce1c7447a186df7f5ad020b40c8a2c751"

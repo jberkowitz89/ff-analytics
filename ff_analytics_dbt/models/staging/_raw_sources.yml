@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: ff_analytics
-    database: ff_analytics 
+    database: verceldb 
     schema: raw 
     tables:
       - name: box_scores
