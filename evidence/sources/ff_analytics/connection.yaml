@@ -2,7 +2,10 @@
 name: ff_analytics
 type: postgres
 options:
-  host: localhost
+  host: ep-little-sunset-a571tume-pooler.us-east-2.aws.neon.tech
   port: 5432
-  database: ff_analytics
+  database: verceldb
+  ssl:
+    sslmode: require
+    rejectUnauthorized: true
   schema: dhsalumni_reports
