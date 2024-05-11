@@ -43,8 +43,8 @@ group by 1
     team_score,
     opponent_score,
     result,
-    delta_from_avg,
-    opponent_delta_from_avg
+    pts_above_or_below_avg,
+    opponent_pts_above_or_below_avg
   from
     ff_analytics.win_loss_against_avg
   where
@@ -54,12 +54,12 @@ group by 1
 
 <ScatterPlot 
     data={win_loss_against_avg} 
-    x=delta_from_avg 
-    y=opponent_delta_from_avg 
+    x=pts_above_or_below_avg
+    y=opponent_pts_above_or_below_avg
     series=result 
     title="Wins and Losses Against Weekly Average"
-    xAxisTitle="Points For vs. Weekly Average" 
-    yAxisTitle="Points Against vs. Weekly Average" 
+    xAxisTitle="Points Scored v. Weekly Avg" 
+    yAxisTitle="Points Against v. Weekly Avg" 
     chartAreaHeight=500
     seriesColors={{'win': 'green', 'loss': 'red'}}
     >

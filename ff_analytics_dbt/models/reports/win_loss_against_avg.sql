@@ -66,8 +66,8 @@ final as (
 
     select
         *,
-        team_score - weekly_avg_pts as delta_from_avg,
-        opponent_score - weekly_avg_pts as opponent_delta_from_avg
+        team_score - weekly_avg_pts as pts_above_or_below_avg,
+        opponent_score - weekly_avg_pts as opponent_pts_above_or_below_avg
     from
         unioned
 
