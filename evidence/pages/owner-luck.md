@@ -1,5 +1,5 @@
 ---
-title: "Wins and Losses Against Weekly Average"
+title: "Weekly Performance Against Average"
 ---
 
 ```sql unique_owners
