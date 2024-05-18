@@ -15,9 +15,15 @@ def get_settings(league) -> dict:
     '''
     docstring placeholder
     '''
+    position_keys = ['QB', 'RB', 'WR', 'TE', 'D/ST', 'K', 'BE', 'RB/WR/TE', 'WR/TE']
     settings = league.settings
     attrs = vars(settings)
     attrs['year'] = league.year
+    for position in position_keys:
+        try:
+            attrs[f'n_{position.lower()}'] = attrs['position_slot_counts'][position]
+        except:
+            attrs[f'n_{position.lower()}'] = 0
     return attrs
 
 def get_draft(league: League) -> list:
@@ -145,7 +151,7 @@ def get_box_players(league: League) -> list:
         return all_box_players
             
 if __name__ == '__main__':
-    my_league = get_league(LEAGUE_ID, 2021, ESPN_S2, SWID)
-    box_players = get_box_players(my_league)
-    print(type(box_players))
-    print(box_players[0])
+    my_league = get_league(LEAGUE_ID, 2009, ESPN_S2, SWID)
+    settings = get_settings(my_league)
+    print(type(settings))
+    print(settings)
