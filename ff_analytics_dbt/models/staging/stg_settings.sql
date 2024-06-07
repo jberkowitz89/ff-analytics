@@ -18,6 +18,16 @@ renamed as (
         team_count as n_teams,
         playoff_team_count as n_playoff_teams,
         keeper_count,
+        year,
+        n_qb,
+        n_rb,
+        n_wr,
+        n_te,
+        "n_d/st" as n_dst,
+        n_k,
+        n_be,
+        "n_rb/wr/te" as n_flex,
+        "n_wr/te" as n_wr_te,
         to_timestamp(trade_deadline/1000) as trade_deadline
     from
         source

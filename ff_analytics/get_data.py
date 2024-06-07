@@ -4,27 +4,44 @@ from constants import LEAGUE_ID, ESPN_S2, SWID
 
 #Constants
 
-def get_league(league_id:int, year:int, espn_s2:str, swid:str):
+def get_league(league_id:int, year:int, espn_s2:str, swid:str) -> League:
     '''
-    docstring placeholder
+    Function to return a League object from the espn_api football module.
+
+    Args:
+        league_id (int): ID of ESPN fantasy football league.
+        year (int): Year of the league.
+        espn_s2 (str): ESPN_S2 cookie.
+        swid (str): SWID cookie.
+
+    Returns:
+        League: League object from espn_api.football module.
     '''
+    
     league = League(LEAGUE_ID, year, ESPN_S2, SWID)
     return league
 
 def get_settings(league) -> dict:
     '''
-    docstring placeholder
+    Function to return dictionary of settings for a given league.
+
+    Args:
+        league (League): League object from espn_api.football module.
+    
+    Returns:
+        settings_dict (dict): Dictionary of settings for the league.
     '''
+
     position_keys = ['QB', 'RB', 'WR', 'TE', 'D/ST', 'K', 'BE', 'RB/WR/TE', 'WR/TE']
     settings = league.settings
-    attrs = vars(settings)
-    attrs['year'] = league.year
+    settings_dict = vars(settings)
+    settings_dict['year'] = league.year
     for position in position_keys:
         try:
-            attrs[f'n_{position.lower()}'] = attrs['position_slot_counts'][position]
+            settings_dict[f'n_{position.lower()}'] = settings_dict['position_slot_counts'][position]
         except:
-            attrs[f'n_{position.lower()}'] = 0
-    return attrs
+            settings_dict[f'n_{position.lower()}'] = 0
+    return settings_dict
 
 def get_draft(league: League) -> list:
     '''
